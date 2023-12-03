@@ -1,14 +1,18 @@
 import { Canvas } from "@react-three/fiber";
 import Box from "./components/Box";
-import Sphere from "./components/Sphere";
-import Cylinder from "./components/Cylinder";
+import { OrbitControls } from "@react-three/drei";
 
 function App() {
 	return (
-		<Canvas>
+		<Canvas shadowMap>
+			<ambientLight intensity={1} />
+			<directionalLight intensity={10} castShadow/>
+			{/* <pointLight position={[0, 5, 0]} intensity={10} castShadow/> */}
+			{/* <spotLight position={[0, 10, 0]} intensity={10} castShadow/> */}
 			<Box position={[0, 0, 0]} />
-			<Sphere position={[2, 0, 0]} />
-			<Cylinder position={[-2, 0, 0]} />
+			<Box position={[3, 0, 0]} />
+			<Box position={[6, 0, 0]} />
+			<OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
 		</Canvas>
 	);
 }
