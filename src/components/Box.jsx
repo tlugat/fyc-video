@@ -1,8 +1,8 @@
-const Box = (props) => {
+const Box = ({ color, ...props }) => {
 	return (
 		<mesh {...props}>
 			<boxGeometry />
-			<meshBasicMaterial color="yellow" />
+			<meshBasicMaterial color={color} />
 		</mesh>
 	);
 };
