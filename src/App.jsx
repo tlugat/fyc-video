@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import {
@@ -15,8 +16,8 @@ import {
 
 function App() {
   return (
-    <Canvas>
-      <ambientLight intensity={0.5} />
+    <Canvas camera={{ position: [100, 50, 120] }}>
+      <ambientLight intensity={1.5} />
       <directionalLight position={[1, 10, 0]} intensity={3} />
       <pointLight position={[5, 5, 5]} intensity={2} distance={100} decay={2} />
       <Sun />
