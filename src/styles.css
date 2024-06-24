@@ -1,21 +1,33 @@
 @font-face {
-  font-family: "SpaceCrusaders";
-  src: url("../public/fonts/space-crusaders-font/SpaceCrusaders.ttf")
-    format("ttf");
+	font-family: "SpaceCrusaders";
+	src: url("/fonts/space-crusaders-font/SpaceCrusaders.ttf") format("truetype");
 }
 
 .header {
-  color: white;
-  position: fixed;
-  top: 2rem;
-  left: 2rem;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  width: 100%;
+	color: white;
+	position: fixed;
+	top: 2rem;
+	left: 2rem;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+	width: 100%;
+	font-family: "Roboto", sans-serif;
+	font-size: 1.25rem;
+	max-width: 800px;
+	width: 100%;
+}
 
-  .title {
-    font-family: "SpaceCrusaders";
-    font-size: 2rem;
-  }
+.header__title {
+	font-family: "SpaceCrusaders";
+	font-size: 4rem;
+}
+
+.header__description {
+	line-height: 1.75rem;
+	font-size: 1.5rem;
+}
+
+.header__label {
+	font-weight: bold;
 }
