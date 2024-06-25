@@ -4,9 +4,10 @@ import * as THREE from "three";
 import { TextureLoader } from "three";
 import OrbitPath from "./OrbitPath";
 import { usePlanet } from "../contexts/PlanetContext";
+import { usePlanetPositions } from "../contexts/PlanetPositionsContext";
 
 const Planet = ({
-	data,
+	name,
 	texturePath,
 	scale,
 	orbitalSpeed,
@@ -19,6 +20,7 @@ const Planet = ({
 	const thetaRef = useRef(0);
 	const [hovered, setHovered] = useState(false);
 	const [_, setPlanet] = usePlanet();
+	const [__, setPlanetPosition] = usePlanetPositions();
 	const texture = useLoader(TextureLoader, texturePath);
 
 	useFrame(() => {
@@ -32,12 +34,24 @@ const Planet = ({
 
 		if (planetRef.current) {
 			planetRef.current.rotateOnAxis(rotationAxis, rotationSpeed);
+			handleSetPosition(orbitRef.current.position);
 		}
 	});
 
+	const handleSetPosition = (position) => {
+		setPlanetPosition((positions) =>
+			positions.map((planet) => {
+				if (planet.name === name) {
+					return { ...planet, position };
+				}
+				return planet;
+			})
+		);
+	};
+
 	const onPointerOver = () => {
 		setHovered(true);
-		setPlanet(data);
+		setPlanet(name);
 	};
 
 	const onPointerOut = () => {
