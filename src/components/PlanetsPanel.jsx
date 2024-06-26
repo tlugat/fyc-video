@@ -10,6 +10,10 @@ const PlanetsPanel = () => {
 	const [selectedPlanet, setSelectedPlanetPosition] =
 		useSelectedPlanetPosition();
 
+	const positionsDefined = planets.every((planet) => planet.position);
+
+	if (!positionsDefined) return null;
+
 	const handleSelectPlanet = (planetName) => {
 		if (selectedPlanet === planetName) {
 			setPlanet(null);

@@ -10,7 +10,7 @@ function App() {
 	return (
 		<PlanetPositionsProvider>
 			<PlanetProvider>
-				<audio autoPlay loop>
+				<audio autoPlay loop hidden>
 					<source src={spaceAudio} type="audio/mpeg" />
 				</audio>
 				<PlanetHeader />
